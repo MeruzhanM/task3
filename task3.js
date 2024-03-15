@@ -34,13 +34,14 @@ nodes = [
 function createTree1(nodes, parent = null) {
   let tree = {};
   for(let i = 0; i < nodes.length; i++) {
-    if(nodes[i].parentId === parent) {
-      tree[nodes[i].id] = createTree1(nodes, nodes[i].id)
+    let node = nodes[i];
+    if(node.parentId === parent) {
+      tree[node.id] = createTree1(nodes, node.id)
     }
   }
   return tree;
 }
-
+createTree1(nodes)
 
 ///////////////////////  TASK 2 ///////////////////////
 
